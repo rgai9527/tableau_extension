@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Extract & Approval Extension</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Tableau Extensions Library (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/tableau-api/dist/tableau.extensions.1.latest.min.js"></script>
+
+    <!-- Our extension code -->
+    <script src="./datasources.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="actionsPanel" class="panel panel-default" style="margin-top:20px; padding:15px;">
+        <div class="panel-heading">
+          <h4 style="margin:0;">Datasource Controls</h4>
+        </div>
+        <div class="panel-body" style="display:flex; align-items:center; gap:15px;">
+          <button id="approveButton" class="btn btn-success">Approve</button>
+          <button id="refreshButton" class="btn btn-primary">Refresh Now</button>
+          <span id="infoIcon" class="glyphicon glyphicon-info-sign" style="font-size:1.6em; cursor:pointer;" title="Show Data Source Info"></span>
+        </div>
+      </div>
+
+      <div class="modal fade" id="infoModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Data Source Details</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><strong>Name</strong></td>
+                    <td id="nameDetail"></td>
+                  </tr>
+                  <tr>
+                    <td><strong>ID</strong></td>
+                    <td id="idDetail"></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Type</strong></td>
+                    <td id="typeDetail"></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fields</strong></td>
+                    <td id="fieldsDetail"></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Connections</strong></td>
+                    <td id="connectionsDetail"></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Active Tables</strong></td>
+                    <td id="activeTablesDetail"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
